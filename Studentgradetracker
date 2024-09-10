@@ -1,0 +1,51 @@
+import java.util.Scanner;
+class Studentgrades {
+    public static double Average(double[] grades)
+    {
+        double sum = 0;
+        for (double grade : grades)
+        {
+            sum += grade;
+        }
+        return sum;
+    }
+    public static double Highest(double[] grades) {
+        double highest = grades[0];
+        for (double grade : grades)
+        {
+            if (grade > highest)
+            {
+                highest = grade;
+            }
+        }
+        return highest;
+    }
+    public static double Lowest(double[] grades) {
+        double lowest = grades[0];
+        for (double grade : grades) {
+            if (grade < lowest)
+            {
+                lowest = grade;
+            }
+        }
+        return lowest;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to student grade tracker!!");
+        System.out.println("Enter the number of students: ");
+        int students = scanner.nextInt();
+        double[] grades = new double[students];
+        for (int i = 0; i < students; i++)
+        {
+            System.out.print("Enter grade for student " + (i + 1) + ": ");
+            grades[i] = scanner.nextDouble();
+        }
+        double average = Average(grades);
+        double highest = Highest(grades);
+        double lowest = Lowest(grades);
+        System.out.println("Average Grade:"+average/students);
+        System.out.println("Highest Grade: "+highest);
+        System.out.println("Lowest Grade: "+lowest);
+    }
+}
